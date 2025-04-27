@@ -6,3 +6,11 @@
 # npm run dev
 # npm add --save-dev @aws-amplify/backend@latest @aws-amplify/backend-cli@latest
 # npm add --save-dev @types/aws-lambda
+
+
+
+
+
+
+
+# https://github.com/focusOtter/fullstack-appsync-mongodb
