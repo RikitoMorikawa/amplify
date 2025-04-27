@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM Template for local testing of MongoDB Lambda function
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: amplify/function/hello-world/
+      Handler: handler.handler
+      Runtime: nodejs20.x
+      Architectures:
+        - x86_64
+      Timeout: 30
+      Environment:
+        Variables:
+          DATABASE_URL: mongodb+srv://rikitomorikawaunity:IJMDSJq1wXb2iPvU@amplify.ycsnjaf.mongodb.net/
+          MONGODB_DB: Amplify
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello-world
+            Method: post
+
+Outputs:
+  HelloWorldFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt HelloWorldFunction.Arn
+  HelloWorldApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-world/"
