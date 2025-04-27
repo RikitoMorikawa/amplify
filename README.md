@@ -6,6 +6,8 @@
 # npm run dev
 # npm add --save-dev @aws-amplify/backend@latest @aws-amplify/backend-cli@latest
 # npm add --save-dev @types/aws-lambda
+# npm i --save-dev @types/node
+# npm install mongodb
 
 
 
